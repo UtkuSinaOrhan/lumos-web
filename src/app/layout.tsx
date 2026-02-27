@@ -21,8 +21,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="tr">
-      <body className={`${inter.className} bg-gradient-to-br from-[#0b0f2a] via-[#1a1f4f] to-[#2e1065] text-white`}>
-        {children}
+      <body className="bg-white text-black dark:bg-[#0b0f2a] dark:text-white transition-colors duration-300">        {children}
       </body>
     </html>
   );
