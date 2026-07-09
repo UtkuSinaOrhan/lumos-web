@@ -514,23 +514,21 @@ export function ContactCTA() {
               <div className="max-w-xl">
                 <h3 className="text-2xl md:text-3xl font-semibold tracking-tight text-white">
                   {lang === "tr"
-                    ? "LumosMind demosunu görmek ister misin?"
-                    : "Want to see the LumosMind demo?"}
+                    ? "LumosMind ile iletişime geçmek ister misin?"
+                    : "Want to get in touch with LumosMind?"}
                 </h3>
                 <p className="mt-3 text-white/80 leading-relaxed">
                   {lang === "tr"
-                    ? "Kapsamı (sensör türleri, MVP hedefi, bildirim akışı) netleştirip demo planı çıkaralım."
-                    : "Let’s clarify scope (sensor types, MVP goals, alert flow) and create a demo plan."}
+                    ? "Yan taraftaki butona tıklayarak bize e-posta yoluyla ulaşabilir, sosyal medya hesaplarımızdan bizi daha yakından tanıyabilirsiniz."
+                    : "You can reach us via email by clicking the button on the side, and get to know us better through our social media accounts."}
                 </p>
               </div>
 
               <div className="flex flex-col sm:flex-row gap-3">
                 {/* mailto: linki — tıklanınca kullanıcının varsayılan e-posta
-                    uygulaması, konu satırı otomatik doldurulmuş şekilde açılır. */}
+                    uygulaması açılır.*/}
                 <a
-                  href={`mailto:${site.email}?subject=${encodeURIComponent(
-                    lang === "tr" ? "LumosMind Demo Talebi" : "LumosMind Demo Request"
-                  )}`}
+                  href={`mailto:${site.email}`}
                   className="rounded-2xl px-5 py-3 bg-white text-[#0b0f2a] text-center font-medium hover:opacity-90 transition"
                 >
                   {lang === "tr" ? "E-posta Gönder" : "Send email"}
@@ -549,7 +547,6 @@ export function ContactCTA() {
             <div className="mt-6 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6 text-sm text-white/70">
               <div>
                 {lang === "tr" ? "İletişim" : "Contact"}:{" "}
-                <span className="underline">{site.email}</span>
               </div>
 
               <div className="flex items-center gap-3">
@@ -569,7 +566,7 @@ export function ContactCTA() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 hover:text-white transition"
                 >
-                  <Instagram size={16} />
+                  <Instagram size={24} />
                   Instagram
                 </a>
                 <a
@@ -578,7 +575,7 @@ export function ContactCTA() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 hover:text-white transition"
                 >
-                  <Linkedin size={16} />
+                  <Linkedin size={24} />
                   LinkedIn
                 </a>
               </div>
