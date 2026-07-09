@@ -546,7 +546,7 @@ export function ContactCTA() {
                 sm ve üzeri ekranlarda yan yana (flex-row), mobilde alt alta (flex-col). */}
             <div className="mt-6 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6 text-sm text-white/70">
               <div>
-                {lang === "tr" ? "İletişim" : "Contact"}:{" "}
+                {lang === "tr" ? "Sosyal Medya Hesaplarımız" : "Social Media Accounts"}:{" "}
               </div>
 
               <div className="flex items-center gap-3">
