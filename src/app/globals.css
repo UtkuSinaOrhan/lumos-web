@@ -1,10 +1,35 @@
+/* =============================================================================
+   globals.css
+   -----------------------------------------------------------------------------
+   Sitenin GENEL (global) stil dosyası. layout.tsx içinde `import "./globals.css"`
+   satırıyla tüm sayfaya uygulanır. Tailwind burada import edilir ve birkaç
+   temel CSS değişkeni / kural tanımlanır.
+   ============================================================================= */
+
+/* Tailwind CSS'in tüm utility class'larını (bg-, text-, flex, grid, vb.)
+   projeye dahil eder. Bu satır olmazsa `className="flex gap-4"` gibi hiçbir
+   Tailwind class'ı çalışmaz. */
 @import "tailwindcss";
 
+/* :root -> tüm sayfada geçerli CSS DEĞİŞKENLERİ (custom properties).
+   Aşağıdaki `body` kuralı bunları kullanıyor.
+   NE DEĞİŞİRSE NE OLUR?
+    - --background değerini değiştirirsen (örn. "#f5f5f5") açık temadaki
+      sayfa arkaplanı o renge döner.
+    - --foreground değerini değiştirirsen açık temadaki yazı rengi değişir.
+   NOT: Sitenin asıl koyu/mor teması aslında burada değil, layout.tsx
+   içindeki `dark:bg-[#0b0f2a]` Tailwind class'ında tanımlı; bu değişkenler
+   şu an pratikte devre dışı (aşağıdaki @theme bloğu yorum satırı içinde). */
 :root {
   --background: #ffffff;
   --foreground: #171717;
 }
 
+/* Bu blok YORUM SATIRI içinde bırakılmış (devre dışı) — Tailwind 4'ün
+   @theme mekanizmasıyla CSS değişkenlerini Tailwind renk/font sistemine
+   bağlamak için kullanılır. Şu an aktif değil; aktif etmek istersen
+   /* ve */ işaretlerini kaldırman yeterli, ama `--font-geist-sans` gibi
+   fontlar tanımlı olmadığı için önce bir font kurulumu (next/font) gerekir. */
 /* @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -12,6 +37,14 @@
   --font-mono: var(--font-geist-mono);
 } */
 
+/* Kullanıcının işletim sistemi/tarayıcısı "koyu mod" tercihindeyse
+   (prefers-color-scheme: dark) --background ve --foreground değişkenlerini
+   koyu tema değerleriyle EZER (override eder).
+   NE DEĞİŞİRSE NE OLUR?
+    - Bu bloğu tamamen silersen, sistem koyu modda olsa bile bu CSS
+      değişkenleri hep açık tema değerlerinde kalır (ama yine de layout.tsx
+      içindeki Tailwind `dark:` class'ları ayrıca kendi koyu temasını
+      uygulamaya devam eder, çünkü onlar bu değişkenlere bağlı değil). */
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
@@ -19,12 +52,22 @@
   }
 }
 
+/* body: Tüm sayfanın taban stilini yukarıdaki CSS değişkenlerinden okur.
+   font-family burada Arial/Helvetica olarak sabitlenmiş; layout.tsx'te
+   `Inter` fontu import edilmiş olsa da buraya (globals.css) uygulanmadığı
+   için ekranda görünen font aslında Arial/Helvetica'dır.
+   NE DEĞİŞİRSE NE OLUR?
+    - font-family listesini değiştirirsen (örn. sadece "sans-serif" yaparsan
+      veya Inter fontunu burada da eklersen) sitedeki TÜM yazı tipi değişir. */
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
 
+/* html { scroll-behavior: smooth } -> Navbar'daki "#product", "#faq" gibi
+   sayfa-içi linklere tıklanınca sayfa aniden değil, YUMUŞAK (animasyonlu)
+   şekilde kayar. Bu satırı silersen kaydırma anlık/sert olur. */
 html {
   scroll-behavior: smooth;
 }
