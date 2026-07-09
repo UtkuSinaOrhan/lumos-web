@@ -28,6 +28,8 @@
 //    olarak tutarsız görünür (grid'in dolgunluğu dile göre değişir).
 // =============================================================================
 
+import { title } from "process";
+
 // -----------------------------------------------------------------------------
 // copy: Sayfanın ana metinleri (başlık, açıklama, buton yazıları, footer notu)
 // Hero bölümü ve Footer bileşeni burayı kullanır.
@@ -81,13 +83,16 @@ export const site = {
       { label: "Ürün", href: "#product" },       // Product bileşenine (id="product") kaydırır
       { label: "Nasıl Çalışır", href: "#how" },   // HowItWorks bileşenine (id="how") kaydırır
       { label: "Kullanım", href: "#use" },        // UseCases bileşenine (id="use") kaydırır
-      { label: "SSS", href: "#faq" },             // FAQ bileşenine (id="faq") kaydırır
+      { label: "SSS", href: "#faq" },           // FAQ bileşenine (id="faq") kaydırır
+      { label: "İletişim", href: "#contact" },     // ContactCTA bileşenine (id="contact") kaydırır
+
     ],
     en: [
       { label: "Product", href: "#product" },
       { label: "How it works", href: "#how" },
       { label: "Use cases", href: "#use" },
       { label: "FAQ", href: "#faq" },
+      { label: "Contact", href: "#contact" },
     ],
   },
 } as const;
@@ -240,6 +245,19 @@ export const faqs = {
       a: "Pilot and MVP timelines vary by team, device, and clinical collaboration. Request a demo to align on scope and plan.",
     },
   ],
+} as const;
+
+export const contact = {
+  tr: [
+    {title: "E-posta", desc: "lumosmind48@gmail.com"},
+    {title: "Instagram", desc: "@lumosmind_"},
+    {title: "LinkedIn", desc: "LumosMind Teknoloji"},
+  ],
+  en: [
+    {title: "Email", desc: "lumosmind48@gmail.com"},
+    {title: "Instagram", desc: "@lumosmind_"},
+    {title: "LinkedIn", desc: "LumosMind Teknoloji"},
+  ]
 } as const;
 
 // -----------------------------------------------------------------------------
